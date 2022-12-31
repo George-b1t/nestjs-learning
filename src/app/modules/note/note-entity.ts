@@ -3,6 +3,7 @@ import { randomUUID } from "crypto";
 interface NoteProps {
   title: string;
   content: string;
+  userId: string;
 }
 
 export class Note {
@@ -32,5 +33,13 @@ export class Note {
 
   public set content(content: string) {
     this.props.content = content;
+  }
+
+  public get userId(): string {
+    return this.props.userId;
+  }
+
+  public set userId(userId: string) {
+    this.props.userId = userId;
   }
 }

@@ -1,3 +1,4 @@
+import { User as PrismaUser } from "@prisma/client";
 import { User } from "src/app/modules/user/user-entity";
 
 export class PrismaUserMapper {
@@ -7,5 +8,14 @@ export class PrismaUserMapper {
       name: user.name,
       about: user.about
     }
+  }
+
+  static fromPrisma(prismaUser: PrismaUser) {
+    const user = new User({
+      name: prismaUser.name,
+      about: prismaUser.about
+    }, prismaUser.id);
+
+    return user;
   }
 }

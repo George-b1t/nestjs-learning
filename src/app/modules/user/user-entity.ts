@@ -9,8 +9,8 @@ export class User {
   private _id: string;
   private props: UserProps;
 
-  constructor(props: UserProps) {
-    this._id = randomUUID();
+  constructor(props: UserProps, userId?: string) {
+    this._id = userId ?? randomUUID();
     this.props = props;
   }
 
