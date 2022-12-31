@@ -6,6 +6,11 @@ export class CreateUserBody {
   @IsString()
   name: string;
 
+  @IsNotEmpty()
+  @Length(8, 30)
+  @IsString()
+  password: string;
+
   @IsOptional()
   @Length(10, 240)
   @IsString()

@@ -9,11 +9,12 @@ export class UserController {
 
   @Post("create")
   async create(@Body() body: CreateUserBody) {
-    const { name, about } = body;
+    const { name, password, about } = body;
 
     const { user } = await this.createUser.execute({
       name,
-      about
+      about,
+      password
     });
 
     return {

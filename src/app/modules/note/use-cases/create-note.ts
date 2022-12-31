@@ -26,7 +26,7 @@ export class CreateNote {
 
     const userExists = !!user;
 
-    if (!userExists) throw new AppError(HttpStatus.BAD_REQUEST, ["user not found"], "Bad request");
+    if (!userExists) throw new AppError("user not found");
 
     const note = new Note({
       title,

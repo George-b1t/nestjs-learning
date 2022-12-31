@@ -6,14 +6,16 @@ export class PrismaUserMapper {
     return {
       id: user.id,
       name: user.name,
-      about: user.about
+      about: user.about,
+      password: user.password
     }
   }
 
   static fromPrisma(prismaUser: PrismaUser) {
     const user = new User({
       name: prismaUser.name,
-      about: prismaUser.about
+      about: prismaUser.about,
+      password: prismaUser.password
     }, prismaUser.id);
 
     return user;

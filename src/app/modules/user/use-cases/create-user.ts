@@ -4,6 +4,7 @@ import { UserRepository } from "../user-repository";
 
 interface CreateUserRequest {
   name: string;
+  password: string;
   about?: string;
 }
 
@@ -16,11 +17,12 @@ export class CreateUser {
   constructor(private userRepository: UserRepository) {}
 
   async execute(request: CreateUserRequest): Promise<CreateUserResponse> {
-    const { name, about } = request;
+    const { name, password, about } = request;
 
     const user = new User({
       name,
-      about
+      about,
+      password
     });
 
     await this.userRepository.create(user);
